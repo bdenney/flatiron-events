@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ApiCalendar from 'react-google-calendar-api';
 import CalendarEvent from './CalendarEvent';
+import Footer from './Footer';
 import TodayView from './TodayView';
 import UpcomingDisplay from './UpcomingDisplay';
 
