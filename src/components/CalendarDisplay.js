@@ -17,7 +17,6 @@ function CalendarDisplay({isSignedIn}) {
 
     ApiCalendar.listUpcomingEvents(20, NYC_CALENDAR_ID)
     .then((data) => {
-      // Update the upcoming events.
       setCalendarEvents(data.result.items);
     });
 
@@ -55,10 +54,6 @@ function CalendarDisplay({isSignedIn}) {
 
       return isToday;
     }
-  }
-
-  function dateString(date) {
-    return `${date.getFullYear()}/${date.getMonth()}/${date.getDate()}`;
   }
 
   const allDayEvents = calendarEvents.filter(event => {

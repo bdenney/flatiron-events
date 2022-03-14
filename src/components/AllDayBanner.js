@@ -6,7 +6,7 @@ function AllDayBanner({events}) {
             {
                 events.map(event => {
                     return (
-                        <h2 className="all-day-event">{event.summary}</h2>  
+                        <h2 className="all-day-event event-title" key={event.id}>{event.summary}</h2>  
                     );
                 })
             }

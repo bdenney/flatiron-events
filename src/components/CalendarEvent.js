@@ -1,4 +1,5 @@
 import React from 'react'
+import {isEventToday, getTimeString, getDayOfWeek} from '../utils/dateUtils';
 
 function CalendarEvent({event}) {
     
@@ -13,9 +14,13 @@ function CalendarEvent({event}) {
             dateStr += "All Day ";
             dateStr += new Date(event.start.date);
         } else if (event.start && event.start.dateTime) {
-            dateStr += new Date(event.start.dateTime).toLocaleDateString();
-            dateStr += " – ";
-            dateStr += new Date(event.end.dateTime).toLocaleDateString();
+            const startTime = new Date(event.start.dateTime);
+
+            if (isEventToday()) {
+                dateStr = getTimeString(startTime);
+            } else {
+                dateStr = getDayOfWeek(startTime);
+            }
         }
         return dateStr;
     }
@@ -44,10 +49,10 @@ function CalendarEvent({event}) {
 
     return(
         <div className="event-card">
-            <h2>{event ? event.summary : null}</h2>
-            <h4>{getCreatorInfo()}</h4>
-            <h4>{getManhattanRoom()}</h4>
-            <h6>{calculateDate()}</h6>
+            <h1 className='event-title'>{event ? event.summary : null}</h1>
+            <h2>{calculateDate()}</h2>
+            { isEventToday() ? <h2>{getManhattanRoom()}</h2> : null }
+            
         </div>
     );
 }

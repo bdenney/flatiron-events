@@ -31,8 +31,15 @@ h2, h4, h6 {
 
 .headline {
   font-family: 'DM Serif Display', serif;
-  font-size: 3.5em;
+  font-size: 3em;
   margin: 0em;
+}
+
+.event-title {
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 400;
+
+  margin: 0;
 }
 
 header {
@@ -85,13 +92,67 @@ header button {
   box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
+/**********************
+  CONTAINER FOR MIDDLE
+***********************/
+
+.timed-events {
+  width:100%;
+  height:90%;
+
+  display:flex;
+  gap: 3em;
+}
+
+/*************
+  CARDS
+**************/
+
+/* Upcoming card formatting */
+.event-card {
+  height:30%;
+  width:48%;
+
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 400;
+
+  font-size: .75em;
+
+  padding:1em;
+  
+  border: 1px solid #385E71;
+  border-radius: 8px;
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+/* "Now" Card formatting */
+.highlight-card .event-card {
+  width:100%;
+  height:100%;
+}
+
+/*************
+  UPCOMING
+**************/
+
+.upcoming-display {
+  height:100%;
+  width:70%;
+}
+
 .event-list {
   display:flex;
   flex-flow: row wrap;
   align-content: start;
 
   width:100%;
-  height:90%;
+  height:80%;
 
   gap:1em;
   padding:0;
@@ -102,44 +163,22 @@ header button {
   box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
-.highlight-card {
-  width:100%;
-  height:56.8%;
-
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-  box-sizing: border-box;         /* Opera/IE 8+ */
-}
-
-.event-card {
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-  box-sizing: border-box;         /* Opera/IE 8+ */
-
-  height:30%;
-  width:30%;
-
-  padding:1em;
-  
-  border: 1px solid #385E71;
-  border-radius: 8px;
-
-  overflow: hidden;
-}
-
-.highlight-card .event-card {
-  width:100%;
-  height:100%;
-}
-
-.upcoming-display {
-  width:60%;
-  overflow: hidden;
-}
+/*************
+  TODAY VIEW
+**************/
 
 .today-view {
+  height:100%;
   width:30%;
 }
+
+.today-view .highlight-card {
+  height:80%;
+}
+
+/*************
+  FOOTER
+**************/
 
 .footer {
   display:flex;
@@ -161,13 +200,9 @@ header button {
   margin-left:auto;
 }
 
-.timed-events {
-  display:flex;
-  gap: 1em;
-
-  width:100%;
-  height:80%;
-}
+/****************
+  ALL DAY BANNER
+*****************/
 
 .all-day-event {
   padding:.25em;
@@ -179,6 +214,7 @@ header button {
 }
 
 .banner {
+  height:10%;
   display:flex;
   gap:1em;
   justify-content: space-evenly;
