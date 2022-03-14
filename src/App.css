@@ -144,7 +144,7 @@ header button {
   display:flex;
   height:10%;
   width:100%;
-  padding:1em;
+  padding:1em 2em 1em 2em;
 
   background-color: #E6643C;
   color:white;
