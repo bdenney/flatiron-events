@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import ApiCalendar from 'react-google-calendar-api';
+import { useState } from 'react';
+import Header from "./components/Header"
+import CalendarDisplay from "./components/CalendarDisplay"
 
 function App() {
+  const [isSignedIn, setIsSignedIn] = useState(ApiCalendar.sign);
+
+  function handleSignIn() {
+    setIsSignedIn(true);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header onSignIn={handleSignIn}/>
+      <CalendarDisplay isSignedIn={isSignedIn} />
     </div>
   );
 }

@@ -1,38 +1,82 @@
-.App {
-  text-align: center;
+/* '
+------------------------------------------
+COLORS
+------------------------------------------
+Sage Green: #54A09E
+Light Pink: #F3C0AF
+Red:        #DE4B51
+Orange:     #5E7643C / #d66d47
+Black:      #101820
+Navy:       #385E71
+------------------------------------------
+
+------------------------------------------
+FONTS
+------------------------------------------
+font-family: 'DM Serif Display', serif;
+font-family: 'Fira Sans', sans-serif;
+------------------------------------------
+*/
+
+html, body, .App {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+header {
+  width:100%;
+  height:20%;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 1em;
+  
+  background-color:  #101820;
+  
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+header button {
+  margin: auto 2em auto auto;
+  padding:1em;
+  border: 1px solid white;
+  border-radius: 8px;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 400;
+  color:white;
+  background:none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.calendar-display {
+  width:100%;
+  height:80%;
+
+  background-color: white;
+  color: #101820;
+}
+
+.headline {
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 800;
+  font-size: 3em;
+  margin-left:1em;
+}
+
+.event-list {
+  display:flex;
+  gap:1em;
+}
+
+.event-card {
+  width:30%;
+  height:auto;
+
+  padding:1em;
+  
+  border: 1px solid #385E71;
+  border-radius: 8px;
 }
