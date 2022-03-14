@@ -11,17 +11,21 @@ function CalendarDisplay({isSignedIn}) {
   const [calendarEvents, setCalendarEvents] = useState([]);
 
   useEffect(() => {
-    if (!ApiCalendar.sign) {
-      return;
-    }
 
-    ApiCalendar.listUpcomingEvents(20, NYC_CALENDAR_ID)
-    .then((data) => {
-      setCalendarEvents(data.result.items);
-      console.log(data);
-    });
+    const interval = setInterval(() => {
+      if (!ApiCalendar.sign) {
+        return;
+      }
 
-  },[isSignedIn]);
+      ApiCalendar.listUpcomingEvents(20, NYC_CALENDAR_ID)
+      .then((data) => {
+        setCalendarEvents(data.result.items);
+      });
+    }, 1000)
+
+    return () => clearInterval(interval);
+
+  },[]);
 
   function isEventAllDay(event) {
     return event && event.start && event.start.date;
