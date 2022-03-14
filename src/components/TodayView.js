@@ -12,7 +12,7 @@ function TodayView({event}) {
         <div className="today-view">
             <h2 className='headline'>{ isHappeningNow() ? "Now" : "Next" }</h2>
             <div className="highlight-card">
-                <CalendarEvent event={event} />
+                <CalendarEvent event={event} showDescription={true} />
             </div>
         </div>
     );

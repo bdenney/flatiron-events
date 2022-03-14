@@ -18,6 +18,7 @@ function CalendarDisplay({isSignedIn}) {
     ApiCalendar.listUpcomingEvents(20, NYC_CALENDAR_ID)
     .then((data) => {
       setCalendarEvents(data.result.items);
+      console.log(data);
     });
 
   },[isSignedIn]);

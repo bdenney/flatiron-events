@@ -35,13 +35,6 @@ h2, h4, h6 {
   margin: 0em;
 }
 
-.event-title {
-  font-family: 'Fira Sans', sans-serif;
-  font-weight: 400;
-
-  margin: 0;
-}
-
 header {
   width:100%;
   height:10%;
@@ -110,6 +103,9 @@ header button {
 
 /* Upcoming card formatting */
 .event-card {
+  display:flex;
+  flex-flow: column nowrap;
+
   height:30%;
   width:48%;
 
@@ -123,12 +119,35 @@ header button {
   border: 1px solid #385E71;
   border-radius: 8px;
 
-  text-overflow: ellipsis;
-  overflow: hidden;
-
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
   box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+.event-title {
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 400;
+
+  margin: 0;
+}
+
+.event-card h1 {
+  font-size:2.25em;
+}
+
+.event-card h2 {
+  height: 10%;
+}
+
+.event-card p {
+  height: 70%;
+  font-size: 2em;
+
+  margin:0;
+  
+  overflow: hidden;
+  white-space: wrap;
+  text-overflow: ellipsis;
 }
 
 /* "Now" Card formatting */

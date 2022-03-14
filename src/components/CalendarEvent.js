@@ -1,7 +1,7 @@
 import React from 'react'
 import {isEventToday, getTimeString, getDayOfWeek} from '../utils/dateUtils';
 
-function CalendarEvent({event}) {
+function CalendarEvent({event, showDescription=false}) {
     
     function calculateDate() {
         if (!event || !event.start) {
@@ -52,7 +52,7 @@ function CalendarEvent({event}) {
             <h1 className='event-title'>{event ? event.summary : null}</h1>
             <h2>{calculateDate()}</h2>
             { isEventToday() ? <h2>{getManhattanRoom()}</h2> : null }
-            
+            <p>{showDescription ? event.description : null}</p>
         </div>
     );
 }
