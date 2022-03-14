@@ -40,14 +40,12 @@ function Footer() {
     }
 
     function getTimeString() {
-        const hours = time.getHours();
+        let hours = time.getHours();
         const ampm = hours >= 12 ? 'pm' : 'am';
 
 
-        return hours.toLocaleString('en-US', {
-            minimumIntegerDigits: 2,
-            useGrouping: false
-          }) + ":" + time.getMinutes().toLocaleString('en-US', {
+        return (hours > 12 ? hours - 12 : hours).toLocaleString() 
+        + ":" + time.getMinutes().toLocaleString('en-US', {
             minimumIntegerDigits: 2,
             useGrouping: false
           }) + " " + ampm;
