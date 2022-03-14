@@ -11,7 +11,7 @@ function CalendarEvent({event}) {
         if (event.start && event.start.date) {
             // This is an all-day event
             dateStr += "All Day ";
-            dateStr += event.start.date;
+            dateStr += new Date(event.start.date);
         } else if (event.start && event.start.dateTime) {
             dateStr += new Date(event.start.dateTime).toLocaleDateString();
             dateStr += " – ";

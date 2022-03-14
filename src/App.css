@@ -67,6 +67,7 @@ header button {
 
 .calendar-display {
   display: flex;
+  flex-direction: column;
   gap:1em;
 
   width:100%;
@@ -158,4 +159,27 @@ header button {
 
 .footer .time {
   margin-left:auto;
+}
+
+.timed-events {
+  display:flex;
+  gap: 1em;
+
+  width:100%;
+  height:80%;
+}
+
+.all-day-event {
+  padding:.25em;
+  border: 1px solid #54A09E;
+  border-radius: 8px;
+  background-color: #54A09E;
+  color: white;
+  flex: 1 0 auto;
+}
+
+.banner {
+  display:flex;
+  gap:1em;
+  justify-content: space-evenly;
 }

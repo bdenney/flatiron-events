@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ApiCalendar from 'react-google-calendar-api';
-import CalendarEvent from './CalendarEvent';
-import Footer from './Footer';
+import AllDayBanner from './AllDayBanner';
 import TodayView from './TodayView';
 import UpcomingDisplay from './UpcomingDisplay';
 
@@ -20,18 +19,65 @@ function CalendarDisplay({isSignedIn}) {
     .then((data) => {
       // Update the upcoming events.
       setCalendarEvents(data.result.items);
-
-      console.log(data.result.items)
     });
 
   },[isSignedIn]);
 
-  const upNext = calendarEvents[0];
+  function isEventAllDay(event) {
+    return event && event.start && event.start.date;
+  }
+
+  function isEventToday(event) {
+    if (!event) {
+      return false;
+    }
+
+    if (isEventAllDay(event)) {
+
+      const today = new Date();
+      let eventDate;
+      let isToday = false;
+      
+      if (event.start.date) {
+        eventDate = new Date(event.start.date + " EST")
+      } else if (event.start.dateTime) {
+        eventDate = new Date(event.start.dateTime);
+      }
+
+      if (eventDate) {
+
+        isToday = (
+          eventDate.getFullYear() == today.getFullYear()
+          && eventDate.getMonth() == today.getMonth()
+          && eventDate.getDate() == today.getDate()
+        );
+      }
+
+      return isToday;
+    }
+  }
+
+  function dateString(date) {
+    return `${date.getFullYear()}/${date.getMonth()}/${date.getDate()}`;
+  }
+
+  const allDayEvents = calendarEvents.filter(event => {
+    return isEventAllDay(event) && isEventToday(event);
+  });
+
+  const upcomingEvents = calendarEvents.filter(event => {
+    return !(isEventAllDay(event) && isEventToday(event));
+  });
+
+  const upNextEvent = upcomingEvents[0];
 
   return (
     <div className='calendar-display'>
-      { upNext ? <TodayView event={upNext} /> : null }
-      <UpcomingDisplay events={calendarEvents.slice(1)} />      
+      <AllDayBanner events={allDayEvents}/>
+      <div className="timed-events">
+        { upNextEvent ? <TodayView event={upNextEvent} /> : null }
+        <UpcomingDisplay events={upcomingEvents.slice(1)} />      
+      </div>
     </div>
   )
 }
