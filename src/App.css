@@ -5,7 +5,7 @@ COLORS
 Sage Green: #54A09E
 Light Pink: #F3C0AF
 Red:        #DE4B51
-Orange:     #5E7643C / #d66d47
+Orange:     #E6643C
 Black:      #101820
 Navy:       #385E71
 ------------------------------------------
@@ -25,9 +25,15 @@ html, body, .App {
   height: 100vh;
 }
 
+.headline {
+  font-family: 'DM Serif Display', serif;
+  font-size: 3.5em;
+  margin: 0em;
+}
+
 header {
   width:100%;
-  height:20%;
+  height:10%;
 
   display: flex;
   gap: 1em;
@@ -52,23 +58,23 @@ header button {
 }
 
 .calendar-display {
+  display: flex; 
+  flex-direction: column;
+  gap:1em;
+
   width:100%;
   height:80%;
 
   background-color: white;
   color: #101820;
-}
 
-.headline {
-  font-family: 'Fira Sans', sans-serif;
-  font-weight: 800;
-  font-size: 3em;
-  margin-left:1em;
+  padding: 2em;
 }
 
 .event-list {
   display:flex;
   gap:1em;
+  padding:0;
 }
 
 .event-card {

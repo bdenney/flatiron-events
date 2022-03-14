@@ -1,16 +1,12 @@
 import React from 'react'
 
 function CalendarEvent({event}) {
-    // person who made event: event.creator.email / .displayName
-
-    // title: event.summary
-
-    // time: event.start.date / event.end.date
-
-    // room: location
-
-
+    
     function calculateDate() {
+        if (!event || !event.start) {
+            return;
+        }
+
         let dateStr = "";
         if (event.start && event.start.date) {
             // This is an all-day event
@@ -21,18 +17,18 @@ function CalendarEvent({event}) {
             dateStr += " – ";
             dateStr += new Date(event.end.dateTime).toLocaleDateString();
         }
-        return dateStr;s
+        return dateStr;
     }
 
     function getCreatorInfo() {
-        if (!event.creator) {
+        if (!event || !event.creator) {
             return;
         }
         return event.creator.displayName ? event.creator.displayName : event.creator.email;
     }
 
     function getManhattanRoom() {
-        if (!event.location) {
+        if (!event||!event.location) {
             return;
         }
         return event.location.replace("Manhattan-2-Manhattan - ", "").split(" ").reduce((prev, curr) => {
@@ -48,7 +44,7 @@ function CalendarEvent({event}) {
 
     return(
         <div className="event-card">
-            <h2>{event.summary}</h2>
+            <h2>{event ? event.summary : null}</h2>
             <h4>{getCreatorInfo()}</h4>
             <h4>{getManhattanRoom()}</h4>
             <h6>{calculateDate()}</h6>
