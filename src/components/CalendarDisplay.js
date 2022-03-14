@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ApiCalendar from 'react-google-calendar-api';
 import CalendarEvent from './CalendarEvent';
 import TodayView from './TodayView';
+import UpcomingDisplay from './UpcomingDisplay';
 
 function CalendarDisplay({isSignedIn}) {
 
@@ -29,14 +30,7 @@ function CalendarDisplay({isSignedIn}) {
   return (
     <div className='calendar-display'>
       { upNext ? <TodayView event={upNext} /> : null }
-      <h2 className="headline">Upcoming</h2>
-      <ul className="event-list">
-      {
-          calendarEvents.map(event => {
-              return <CalendarEvent key={event.id} event={event} />
-          })
-      }
-      </ul>
+      <UpcomingDisplay events={calendarEvents.slice(1)} />      
     </div>
   )
 }

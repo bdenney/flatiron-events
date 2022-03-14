@@ -25,6 +25,10 @@ html, body, .App {
   height: 100vh;
 }
 
+h2, h4, h6 {
+  margin:0;
+}
+
 .headline {
   font-family: 'DM Serif Display', serif;
   font-size: 3.5em;
@@ -44,6 +48,10 @@ header {
   font-weight: 400;
   text-transform: uppercase;
   color: white;
+
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 header button {
@@ -58,31 +66,77 @@ header button {
 }
 
 .calendar-display {
-  display: flex; 
-  flex-direction: column;
+  display: flex;
   gap:1em;
 
   width:100%;
-  height:80%;
+  height:90%;
 
   background-color: white;
   color: #101820;
 
   padding: 2em;
+  overflow: hidden;
+
+
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 .event-list {
   display:flex;
+  flex-flow: row wrap;
+  align-content: start;
+
+  width:100%;
+  height:90%;
+
   gap:1em;
   padding:0;
+  margin:0;
+
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+.highlight-card {
+  width:100%;
+  height:56.8%;
+
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 .event-card {
+
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+
+  height:30%;
   width:30%;
-  height:auto;
 
   padding:1em;
   
   border: 1px solid #385E71;
   border-radius: 8px;
+
+  overflow: hidden;
+}
+
+.highlight-card .event-card {
+  width:100%;
+  height:100%;
+}
+
+.upcoming-display {
+  width:60%;
+  overflow: hidden;
+}
+
+.today-view {
+  width:30%;
 }
