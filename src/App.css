@@ -31,6 +31,7 @@ h2, h4, h6 {
 
 .headline {
   font-family: 'DM Serif Display', serif;
+  font-weight: 100;
   font-size: 3em;
   margin: 0em 0em .25em 0em;
 }
@@ -178,6 +179,7 @@ header button {
   gap:1em;
   padding:0;
   margin:0;
+  overflow:hidden;
 
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
