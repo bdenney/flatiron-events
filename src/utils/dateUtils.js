@@ -9,50 +9,62 @@ const DAYS = [
 ]
 
 function isEventAllDay(event) {
-    return event && event.start && event.start.date;
+  return event && event.start && event.start.date;
+}
+
+function isEventToday(event) {
+  if (!event) {
+    return false;
   }
 
-  function isEventToday(event) {
-    if (!event) {
-      return false;
-    }
-
-    const today = new Date();
-    let eventDate;
-    let isToday = false;
-    
-    if (event.start.date) {
-      eventDate = new Date(event.start.date + " EST")
-    } else if (event.start.dateTime) {
-      eventDate = new Date(event.start.dateTime);
-    }
-
-    if (eventDate) {
-
-      isToday = (
-        eventDate.getFullYear() == today.getFullYear()
-        && eventDate.getMonth() == today.getMonth()
-        && eventDate.getDate() == today.getDate()
-      );
-    }
-
-    return isToday;
+  const today = new Date();
+  let eventDate;
+  let isToday = false;
+  
+  if (event.start.date) {
+    eventDate = new Date(event.start.date + " EST")
+  } else if (event.start.dateTime) {
+    eventDate = new Date(event.start.dateTime);
   }
+
+  if (eventDate) {
+
+    isToday = (
+      eventDate.getFullYear() == today.getFullYear()
+      && eventDate.getMonth() == today.getMonth()
+      && eventDate.getDate() == today.getDate()
+    );
+  }
+
+  return isToday;
+}
 
 function getTimeString(time) {
-    let hours = time.getHours();
-    const ampm = hours >= 12 ? 'pm' : 'am';
+  let hours = time.getHours();
+  const ampm = hours >= 12 ? 'pm' : 'am';
 
 
-    return (hours > 12 ? hours - 12 : hours).toLocaleString() 
-    + ":" + time.getMinutes().toLocaleString('en-US', {
-        minimumIntegerDigits: 2,
-        useGrouping: false
-      }) + " " + ampm;
+  return (hours > 12 ? hours - 12 : hours).toLocaleString() 
+  + ":" + time.getMinutes().toLocaleString('en-US', {
+      minimumIntegerDigits: 2,
+      useGrouping: false
+    }) + " " + ampm;
 }
 
 function getDayOfWeek(date) {
-    return DAYS[date.getDay()];
+  return DAYS[date.getDay()];
+}
+
+export function isEventNow(event) {
+  if (!event || !isEventToday(event) || isEventAllDay(event)) {
+    return false;
+  }
+
+  const now = new Date();
+  const eventStartDate = new Date(event.start.dateTime);
+  const eventEndDate = new Date(event.end.dateTime);
+  
+  return now >= eventStartDate && now <= eventEndDate;
 }
 
 export {isEventAllDay, isEventToday, getTimeString, getDayOfWeek}

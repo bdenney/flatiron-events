@@ -1,5 +1,5 @@
 import React from 'react'
-import {isEventToday, getTimeString, getDayOfWeek} from '../utils/dateUtils';
+import {isEventToday, getTimeString, getDayOfWeek, isEventNow} from '../utils/dateUtils';
 
 function CalendarEvent({event, showDescription=false}) {
 

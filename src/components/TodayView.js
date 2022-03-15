@@ -1,11 +1,11 @@
 import React from 'react'
 import CalendarEvent from './CalendarEvent';
+import { isEventNow } from '../utils/dateUtils'
 
 function TodayView({event}) {
 
     function isHappeningNow() {
-        // TODO: figure out whether this event is happening now or is 'next'.
-        return false;
+        return isEventNow(event);
     }
 
     return(
