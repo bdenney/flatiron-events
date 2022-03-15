@@ -13,8 +13,8 @@ function Header({onSignIn}) {
 
     return (
         <header>
-            <img src="./images/logo.svg"/>
-            <h1>Flatiron Events</h1>
+            <img src="./images/logo2.svg"/>
+            {/* <h1>Flatiron Events</h1> */}
             <button onClick={handleLogin}>Sign In</button>
         </header>
     )

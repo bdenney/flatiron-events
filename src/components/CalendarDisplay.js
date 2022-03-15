@@ -1,3 +1,4 @@
+import { toBePartiallyChecked } from '@testing-library/jest-dom/dist/matchers';
 import React, { useEffect, useState } from 'react'
 import ApiCalendar from 'react-google-calendar-api';
 import AllDayBanner from './AllDayBanner';
@@ -72,13 +73,16 @@ function CalendarDisplay({isSignedIn}) {
   const upNextEvent = upcomingEvents[0];
 
   return (
+    
     <div className='calendar-display'>
+      
       <AllDayBanner events={allDayEvents}/>
       <div className="timed-events">
         { upNextEvent ? <TodayView event={upNextEvent} /> : null }
         <UpcomingDisplay events={upcomingEvents.slice(1)} />      
       </div>
     </div>
+    
   )
 }
 

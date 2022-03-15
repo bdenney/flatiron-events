@@ -12,12 +12,31 @@ function App() {
     setIsSignedIn(true);
   }
 
+  let backgroundImage = "url(./images/photos/0.jpg)";
+  const heroStyle = {
+    "backgroundImage": backgroundImage,
+    "backgroundSize": "cover",
+    "backgroundPosition": "center",
+    "height": "100%",
+    "width": "100%",
+    "position":"absolute",
+    "opacity": 0.75,
+    "top": 0,
+    "left":0,
+    "zIndex": -2,
+
+    "filter": "blur(8px)",
+    "-webkit-filter": "blur(8px)"
+  };
+
   return (
     <div className="App">
       <Header onSignIn={handleSignIn}/>
       <CalendarDisplay isSignedIn={isSignedIn} />
-      <Footer />
+      <Footer />  
+      <div style={heroStyle}></div>
     </div>
+    
   );
 }
 
