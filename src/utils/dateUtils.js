@@ -17,29 +17,26 @@ function isEventAllDay(event) {
       return false;
     }
 
-    if (isEventAllDay(event)) {
-
-      const today = new Date();
-      let eventDate;
-      let isToday = false;
-      
-      if (event.start.date) {
-        eventDate = new Date(event.start.date + " EST")
-      } else if (event.start.dateTime) {
-        eventDate = new Date(event.start.dateTime);
-      }
-
-      if (eventDate) {
-
-        isToday = (
-          eventDate.getFullYear() == today.getFullYear()
-          && eventDate.getMonth() == today.getMonth()
-          && eventDate.getDate() == today.getDate()
-        );
-      }
-
-      return isToday;
+    const today = new Date();
+    let eventDate;
+    let isToday = false;
+    
+    if (event.start.date) {
+      eventDate = new Date(event.start.date + " EST")
+    } else if (event.start.dateTime) {
+      eventDate = new Date(event.start.dateTime);
     }
+
+    if (eventDate) {
+
+      isToday = (
+        eventDate.getFullYear() == today.getFullYear()
+        && eventDate.getMonth() == today.getMonth()
+        && eventDate.getDate() == today.getDate()
+      );
+    }
+
+    return isToday;
   }
 
 function getTimeString(time) {

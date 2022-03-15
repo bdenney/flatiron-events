@@ -16,7 +16,7 @@ function CalendarEvent({event, showDescription=false}) {
         } else if (event.start && event.start.dateTime) {
             const startTime = new Date(event.start.dateTime);
 
-            if (isEventToday()) {
+            if (isEventToday(event)) {
                 dateStr = getTimeString(startTime);
             } else {
                 dateStr = getDayOfWeek(startTime);
