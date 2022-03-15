@@ -14,7 +14,7 @@ function BlurredBackgroundHero() {
                 }
                 return nextIndex
             });
-        }, 30000)
+        }, 3000)
 
         return () => clearInterval(interval);
 
@@ -34,8 +34,8 @@ function BlurredBackgroundHero() {
       "zIndex": -2,
       "transition": "background-image 1s ease-in-out",
   
-      "filter": "blur(2px)",
-      "WebkitFilter": "blur(2px)",
+      "filter": "blur(4px)",
+      "WebkitFilter": "blur(4px)",
       "WebkitBackfaceVisibility": "hidden"
     };
 
