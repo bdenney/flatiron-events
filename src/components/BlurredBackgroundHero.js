@@ -33,6 +33,7 @@ function BlurredBackgroundHero() {
       "left":0,
       "zIndex": -2,
       "transition": "background-image 1s ease-in-out",
+      "animation-delay": "0s",
   
       "filter": "blur(4px)",
       "WebkitFilter": "blur(4px)",
