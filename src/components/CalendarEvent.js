@@ -12,7 +12,7 @@ function CalendarEvent({event, showDescription=false}) {
         if (event.start && event.start.date) {
             // This is an all-day event
             dateStr += "All Day ";
-            dateStr += new Date(event.start.date);
+            dateStr += dateStr = getDayOfWeek(new Date(event.start.date));
         } else if (event.start && event.start.dateTime) {
             const startTime = new Date(event.start.dateTime);
 
