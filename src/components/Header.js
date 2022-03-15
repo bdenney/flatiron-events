@@ -1,23 +1,23 @@
 import ApiCalendar from 'react-google-calendar-api';
 
 
-function Header({onSignIn}) {
+function Header({isSignedIn, onSignIn}) {
 
-    function handleLogin() {
-        ApiCalendar.handleAuthClick()
-        .then(() => {
-          onSignIn();
-        });
-      }
+  function handleLogin() {
+      ApiCalendar.handleAuthClick()
+      .then(() => {
+        onSignIn();
+      });
+    }
 
-    return (
-        <header>
-            <img src="./images/logo2.svg"/>
-            {
-              ApiCalendar.sign ? <button onClick={handleLogin}>Sign In</button> : null
-            }
-        </header>
-    )
+  return (
+      <header>
+          <img src="./images/logo2.svg"/>
+          {
+            isSignedIn ? null : <button onClick={handleLogin}>Sign In</button>
+          }
+      </header>
+  )
 }
 
 export default Header;

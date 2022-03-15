@@ -1,11 +1,10 @@
-import { toBePartiallyChecked } from '@testing-library/jest-dom/dist/matchers';
 import React, { useEffect, useState } from 'react'
 import ApiCalendar from 'react-google-calendar-api';
 import AllDayBanner from './AllDayBanner';
 import TodayView from './TodayView';
 import UpcomingDisplay from './UpcomingDisplay';
 
-function CalendarDisplay({isSignedIn}) {
+function CalendarDisplay() {
 
   const NYC_CALENDAR_ID = "flatironschool.com_lhdstd62mqmo6rc96bcf9qff04@group.calendar.google.com";
 

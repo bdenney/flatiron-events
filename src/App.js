@@ -15,9 +15,9 @@ function App() {
 
   return (
     <div className="App">
-      <Header onSignIn={handleSignIn}/>
-      <CalendarDisplay isSignedIn={isSignedIn} />
-      <Footer />  
+      <Header isSignedIn={isSignedIn} onSignIn={handleSignIn}/>
+      { isSignedIn ? <CalendarDisplay /> : null }
+      { isSignedIn ? <Footer />  : null }
       <BlurredBackgroundHero/>
     </div>
     
