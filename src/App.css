@@ -237,7 +237,8 @@ header button {
 *****************/
 
 .all-day-event {
-  padding:.25em;
+  padding:.5em;
+  margin: auto 0 auto 0;
   border: 1px solid white;
   border-radius: 8px;
   background-color: rgba(16, 24, 32, .75);
