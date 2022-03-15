@@ -16,11 +16,12 @@ function CalendarEvent({event, showDescription=false}) {
         } else if (event.start && event.start.dateTime) {
             const startTime = new Date(event.start.dateTime);
 
-            if (isEventToday(event)) {
-                dateStr = getTimeString(startTime);
-            } else {
+            if (!isEventToday(event)) {
                 dateStr = getDayOfWeek(startTime);
+                dateStr += " @ ";
             }
+
+            dateStr += getTimeString(startTime);
         }
         return dateStr;
     }
