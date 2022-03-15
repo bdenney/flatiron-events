@@ -75,10 +75,10 @@ function CalendarDisplay() {
     
     <div className='calendar-display'>
       
-      <AllDayBanner events={allDayEvents}/>
+      { allDayEvents.length > 0 ? <AllDayBanner events={allDayEvents}/> : null }
       <div className="timed-events">
         { upNextEvent ? <TodayView event={upNextEvent} /> : null }
-        <UpcomingDisplay events={upcomingEvents.slice(1)} />      
+        { upcomingEvents.length > 0 ? <UpcomingDisplay events={upcomingEvents.slice(1)} /> : null }
       </div>
     </div>
     

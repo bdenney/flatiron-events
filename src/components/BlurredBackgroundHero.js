@@ -14,7 +14,7 @@ function BlurredBackgroundHero() {
                 }
                 return nextIndex
             });
-        }, 3000)
+        }, 60000)
 
         return () => clearInterval(interval);
 
