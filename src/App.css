@@ -251,6 +251,10 @@ header button {
   box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
+.footer h2 {
+  margin:0;
+}
+
 .footer .time {
   margin-left:auto;
 }
