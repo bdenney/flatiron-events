@@ -209,6 +209,7 @@ header button {
 }
 
 .today-view .date {
+  font-family: 'DM Serif Display', serif;
   font-weight: 100;
   font-size:2em;
 
@@ -218,8 +219,8 @@ header button {
 }
 
 .today-view .event-title {
-  font-family: 'Fira Sans', sans-serif;
-  font-weight: 400;
+  font-family: 'DM Serif Display', serif;
+  font-weight: 100;
 
   font-size: 3em;
 
@@ -228,7 +229,12 @@ header button {
 
 .today-view p {
   font-size: 1.5em;
-  margin-top: 2.5em;
+  padding: 1.5em 0em 1.5em 0em;
+  overflow: hidden;
+
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 /*************
