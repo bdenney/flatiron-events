@@ -67,4 +67,40 @@ export function isEventNow(event) {
   return now >= eventStartDate && now <= eventEndDate;
 }
 
+export function calculateDate(event) {
+  if (!event || !event.start) {
+      return;
+  }
+
+  let dateStr = "";
+  if (event.start && event.start.date) {
+      // This is an all-day event
+      dateStr += "All Day ";
+      dateStr += dateStr = getDayOfWeek(new Date(event.start.date));
+  } else if (event.start && event.start.dateTime) {
+      const startTime = new Date(event.start.dateTime);
+
+      if (!isEventToday(event)) {
+          dateStr = getDayOfWeek(startTime);
+          dateStr += " @ ";
+      }
+
+      dateStr += getTimeString(startTime);
+  }
+  return dateStr;
+}
+
+export function getManhattanRoom(event) {
+  if (!event||!event.location) {
+      return;
+  }
+  return event.location.replace("Manhattan-2-Manhattan - ", "").split(" ").reduce((prev, curr) => {
+      if (!curr.includes("(")) {
+          return prev += (" " + curr);
+      } else {
+          return prev;
+      }
+  }, "");
+}
+
 export {isEventAllDay, isEventToday, getTimeString, getDayOfWeek}

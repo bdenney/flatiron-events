@@ -80,14 +80,12 @@ header button {
 .calendar-display {
   display: flex;
   flex-direction: column;
-  gap:1em;
 
   width:100%;
   height:80%;
 
   color: white;
 
-  padding: 2em;
   overflow: hidden;
 
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
@@ -101,10 +99,9 @@ header button {
 
 .timed-events {
   width:100%;
-  height:90%;
+  height:100%;
 
   display:flex;
-  gap: 3em;
 }
 
 /*************
@@ -174,7 +171,7 @@ header button {
 
 .upcoming-display {
   height:100%;
-  width:70%;
+  width:50%;
 }
 
 .event-list {
@@ -201,11 +198,19 @@ header button {
 
 .today-view {
   height:100%;
-  width:30%;
+  width:50%;
+
+  background-color: #E6643C;
+
+  padding: 0em 2em 0em 2em;
+
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
-.today-view .highlight-card {
-  height:80%;
+.today-view .headline {
+  color:white;
 }
 
 /*************

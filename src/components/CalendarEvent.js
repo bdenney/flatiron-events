@@ -1,30 +1,7 @@
 import React from 'react'
-import {isEventToday, getTimeString, getDayOfWeek, isEventNow} from '../utils/dateUtils';
+import {isEventToday, getManhattanRoom, getTimeString, getDayOfWeek, isEventNow, calculateDate} from '../utils/eventUtils';
 
-function CalendarEvent({event, showDescription=false}) {
-
-    function calculateDate() {
-        if (!event || !event.start) {
-            return;
-        }
-
-        let dateStr = "";
-        if (event.start && event.start.date) {
-            // This is an all-day event
-            dateStr += "All Day ";
-            dateStr += dateStr = getDayOfWeek(new Date(event.start.date));
-        } else if (event.start && event.start.dateTime) {
-            const startTime = new Date(event.start.dateTime);
-
-            if (!isEventToday(event)) {
-                dateStr = getDayOfWeek(startTime);
-                dateStr += " @ ";
-            }
-
-            dateStr += getTimeString(startTime);
-        }
-        return dateStr;
-    }
+function CalendarEvent({event}) {
 
     function getCreatorInfo() {
         if (!event || !event.creator) {
@@ -46,14 +23,11 @@ function CalendarEvent({event, showDescription=false}) {
         }, "");
     }
 
-    calculateDate();
-
     return(
         <div className="event-card">
             <h1 className='event-title'>{event ? event.summary : null}</h1>
             <h2>{calculateDate()}</h2>
             { isEventToday(event) ? <h2>{getManhattanRoom()}</h2> : null }
-            <p>{showDescription ? event.description : null}</p>
         </div>
     );
 }
