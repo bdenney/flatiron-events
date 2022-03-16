@@ -1,15 +1,17 @@
 import React from 'react'
-import { isEventNow, isEventToday, calculateDate, getManhattanRoom, getTimeString, getDayOfWeek } from '../utils/eventUtils'
+import FlatironEvent from '../classes/FlatironEvent';
 
-function TodayView({event}) {
+function TodayView({ event }) {
+
+    const fiEvent = new FlatironEvent(event);
 
     function buildWhenString() {
         let whenString = "";
 
-        if (isEventNow(event)) {
+        if (fiEvent.isNow) {
             whenString += "Happening Now" 
-        } else if (isEventToday(event)) {
-            whenString += getDayOfWeek(new Date(event.start.dateTime));
+        } else if (fiEvent.isToday) {
+            whenString += fiEvent.dayOfWeek;
         } else {
             
         }
@@ -17,10 +19,10 @@ function TodayView({event}) {
 
     return(
         <div className="today-view">
-            <h2>{buildWhenString()}</h2>
+            <h2>{ buildWhenString() }</h2>
             <h1 className='event-title'>{event ? event.summary : null}</h1>
-            <h2>{calculateDate()}</h2>
-            <h2>{getManhattanRoom()}</h2>
+            <h2>{ FlatironEvent.dateString(fiEvent) }</h2>
+            <h2>{ fiEvent.location }</h2>
             <p>{event.description ? event.description : null}</p>
         </div>
     );
