@@ -1,9 +1,7 @@
 import React from 'react'
 import FlatironEvent from '../classes/FlatironEvent';
 
-function TodayView({ event }) {
-
-    const fiEvent = new FlatironEvent(event);
+function TodayView({ fiEvent }) {
 
     function buildWhenString() {
         let whenString = "";
@@ -20,10 +18,10 @@ function TodayView({ event }) {
     return(
         <div className="today-view">
             <h2>{ buildWhenString() }</h2>
-            <h1 className='event-title'>{event ? event.summary : null}</h1>
+            <h1 className='event-title'>{ fiEvent.title }</h1>
             <h2>{ FlatironEvent.dateString(fiEvent) }</h2>
             <h2>{ fiEvent.location }</h2>
-            <p>{event.description ? event.description : null}</p>
+            <p>{ fiEvent.description }</p>
         </div>
     );
 }

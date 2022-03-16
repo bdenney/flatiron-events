@@ -13,6 +13,7 @@ class FlatironEvent {
     #TIME_ZONE = "EST";
 
     #gCalEvent;
+    #id;
     #startDate;
     #endDate;
     #isToday;
@@ -30,6 +31,10 @@ class FlatironEvent {
         this.#calculateIsToday();
         this.#generateLocation();
         this.#generateCreator();
+    }
+
+    get id() {
+        return this.#gCalEvent.id;
     }
 
     get startDate() {
@@ -59,6 +64,18 @@ class FlatironEvent {
 
     get isAllDay() {
         return this.#gCalEvent.start.date;
+    }
+
+    get creator() {
+        return this.#creator;
+    }
+
+    get title() {
+        return this.#gCalEvent.summary;
+    }
+
+    get description() {
+        return this.#gCalEvent.description;
     }
 
     static timeString(dateTime) {
@@ -96,14 +113,14 @@ class FlatironEvent {
             return;
         }
 
-        if (this.#gCalEvent.start.dateTime) {
+        if (this.#gCalEvent?.start?.dateTime) {
             this.#startDate = new Date(this.#gCalEvent.start.dateTime)
-        } else if (this.#gCalEvent.start.date) {
+        } else if (this.#gCalEvent?.start?.date) {
             // Need to append the time zone to properly calculate whether it's today.
             this.#startDate = new Date(this.#gCalEvent.start.date + this.#TIME_ZONE);
         } else {
             // TODO: probably something?
-            console.error("Unknown gCal event structure :o");
+            console.error("Unknown gCal event structure :o. Found: ", this.#gCalEvent);
         }
     }
 
@@ -113,14 +130,14 @@ class FlatironEvent {
             return;
         }
 
-        if (this.#gCalEvent.end.dateTime) {
+        if (this.#gCalEvent?.end?.dateTime) {
             this.#endDate = new Date(this.#gCalEvent.end.dateTime);
-        } else if (this.#gCalEvent.end.date) {
+        } else if (this.#gCalEvent?.end?.date) {
             // Need to append the time zone to properly calculate whether it's today.
             this.#endDate = new Date(this.#gCalEvent.end.date + this.#TIME_ZONE);
         } else {
             // TODO: probably something?
-            console.error("Unknown gCal event structure :o");
+            console.error("Unknown gCal event structure :o. Found: ", this.#gCalEvent);
         }
     }
 

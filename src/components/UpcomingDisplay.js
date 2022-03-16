@@ -9,7 +9,7 @@ function UpcomingDisplay({events}) {
             <ul className="event-list">
             {
                 events.map(event => {
-                    return <CalendarEvent key={event.id} event={event} />
+                    return <CalendarEvent key={event.id} fiEvent={event} />
                 })
             }
             </ul>

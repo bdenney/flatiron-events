@@ -3,23 +3,18 @@ import ApiCalendar from 'react-google-calendar-api';
 import AllDayBanner from './AllDayBanner';
 import TodayView from './TodayView';
 import UpcomingDisplay from './UpcomingDisplay';
+import FlatironEvent from '../classes/FlatironEvent';
 
 function CalendarDisplay() {
 
   const NYC_CALENDAR_ID = "flatironschool.com_lhdstd62mqmo6rc96bcf9qff04@group.calendar.google.com";
-
-  const [calendarEvents, setCalendarEvents] = useState([]);
+  const [eventData, setEventData] = useState([]);
 
   useEffect(() => {
-
     const interval = setInterval(() => {
-      if (!ApiCalendar.sign) {
-        return;
-      }
-
       ApiCalendar.listUpcomingEvents(20, NYC_CALENDAR_ID)
       .then((data) => {
-        setCalendarEvents(data.result.items);
+        setEventData(data?.result?.items);
       });
     }, 1000)
 
@@ -27,46 +22,18 @@ function CalendarDisplay() {
 
   },[]);
 
-  function isEventAllDay(event) {
-    return event && event.start && event.start.date;
-  }
-
-  function isEventToday(event) {
-    if (!event) {
-      return false;
-    }
-
-    if (isEventAllDay(event)) {
-
-      const today = new Date();
-      let eventDate;
-      let isToday = false;
-      
-      if (event.start.date) {
-        eventDate = new Date(event.start.date + " EST")
-      } else if (event.start.dateTime) {
-        eventDate = new Date(event.start.dateTime);
-      }
-
-      if (eventDate) {
-
-        isToday = (
-          eventDate.getFullYear() == today.getFullYear()
-          && eventDate.getMonth() == today.getMonth()
-          && eventDate.getDate() == today.getDate()
-        );
-      }
-
-      return isToday;
-    }
-  }
+  const calendarEvents = eventData.length > 0
+    ? eventData.map((event) => {
+        return new FlatironEvent(event);
+      })
+    : [];
 
   const allDayEvents = calendarEvents.filter(event => {
-    return isEventAllDay(event) && isEventToday(event);
+    return event.isAllDay && event.isToday;
   });
 
   const upcomingEvents = calendarEvents.filter(event => {
-    return !(isEventAllDay(event) && isEventToday(event));
+    return !(event.isAllDay && event.isToday);
   });
 
   const upNextEvent = upcomingEvents[0];
@@ -77,7 +44,7 @@ function CalendarDisplay() {
       
       { allDayEvents.length > 0 ? <AllDayBanner events={allDayEvents}/> : null }
       <div className="timed-events">
-        { upNextEvent ? <TodayView event={upNextEvent} /> : null }
+        { upNextEvent ? <TodayView fiEvent={upNextEvent} /> : null }
         { upcomingEvents.length > 0 ? <UpcomingDisplay events={upcomingEvents.slice(1)} /> : null }
       </div>
     </div>
