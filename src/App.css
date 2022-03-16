@@ -28,10 +28,6 @@ html, body, .App {
   font-weight: 400;
 }
 
-h2, h4, h6 {
-  margin:0;
-}
-
 .headline {
   color:rgba(16, 24, 32, 1);
   text-transform: lowercase;
@@ -132,7 +128,7 @@ header button {
   box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
-.event-title {
+.event-card .event-title {
   font-family: 'Fira Sans', sans-serif;
   font-weight: 400;
 
@@ -197,20 +193,42 @@ header button {
 **************/
 
 .today-view {
+  display:flex;
+  flex-flow: column nowrap;
+
   height:100%;
-  width:50%;
+  width:40%;
 
-  background-color: #E6643C;
+  background-color: rgba(230, 100, 60, .8);
 
-  padding: 0em 2em 0em 2em;
+  padding: 0em 5em 0em 5em;
 
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
   box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
-.today-view .headline {
-  color:white;
+.today-view .date {
+  font-weight: 100;
+  font-size:2em;
+
+  text-align: center;
+
+  margin: 1.5em 0 1.5em 0;
+}
+
+.today-view .event-title {
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 400;
+
+  font-size: 3em;
+
+  margin: 0em 0 .25em 0;
+}
+
+.today-view p {
+  font-size: 1.5em;
+  margin-top: 2.5em;
 }
 
 /*************
@@ -257,3 +275,38 @@ header button {
   gap:1em;
   justify-content: space-evenly;
 }
+
+/**********
+  LOCATION
+***********/
+
+.location-display {
+  display:flex;
+  align-items: center;
+  gap: .25em;
+  font-size:1em;
+  margin:0;
+}
+
+.location-display h3 {
+  margin:0;
+  font-size:1em;
+  font-weight: 100;
+}
+
+/****************
+  MATERIAL ICONS
+*****************/
+/* Rules for sizing the icon. */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
