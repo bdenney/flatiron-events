@@ -13,10 +13,8 @@ class FlatironEvent {
     #TIME_ZONE = "EST";
 
     #gCalEvent;
-    #id;
     #startDate;
     #endDate;
-    #isToday;
     #location;
     #creator;
 
@@ -28,7 +26,6 @@ class FlatironEvent {
         this.#gCalEvent = gCalEvent;
         this.#generateStartDate();
         this.#generateEndDate();
-        this.#calculateIsToday();
         this.#generateLocation();
         this.#generateCreator();
     }
@@ -51,7 +48,23 @@ class FlatironEvent {
     }
 
     get isToday() {
-        return this.#isToday;
+        const today = new Date();
+        return (
+            this.startDate.getFullYear() == today.getFullYear()
+            && this.startDate.getMonth() == today.getMonth()
+            && this.startDate.getDate() == today.getDate()
+        );
+    }
+
+    get isTomorrow() {
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+
+        return (
+            this.startDate.getFullYear() == tomorrow.getFullYear()
+            && this.startDate.getMonth() == tomorrow.getMonth()
+            && this.startDate.getDate() == tomorrow.getDate()
+        );
     }
 
     get dayOfWeek() {
@@ -98,8 +111,11 @@ class FlatironEvent {
         } else {
 
             if (fiEvent.isToday) {
-                dateStr = fiEvent.dayOfWeek;
-                dateStr += " @ ";
+                dateStr = "Today @ ";
+            } else if (fiEvent.isTomorrow) {
+                dateStr += "Tomorrow @ "
+            } else {
+                dateStr += fiEvent.dayOfWeek + " @ "
             }
         
             dateStr += FlatironEvent.timeString(fiEvent.startDate);
@@ -139,15 +155,6 @@ class FlatironEvent {
             // TODO: probably something?
             console.error("Unknown gCal event structure :o. Found: ", this.#gCalEvent);
         }
-    }
-
-    #calculateIsToday() {
-        const today = new Date();
-        this.#isToday = (
-            this.startDate.getFullYear() == today.getFullYear()
-            && this.startDate.getMonth() == today.getMonth()
-            && this.startDate.getDate() == today.getDate()
-        );
     }
 
     #generateLocation() {
