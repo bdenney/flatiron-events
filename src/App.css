@@ -229,7 +229,7 @@ header button {
 
 .today-view p {
   font-size: 1.5em;
-  padding: 1.5em 0em 1.5em 0em;
+  padding: .75em 0em 1.5em 0em;
   overflow: hidden;
 
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
