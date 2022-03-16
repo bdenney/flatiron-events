@@ -290,7 +290,7 @@ header button {
   LOCATION
 ***********/
 
-.location-display {
+.property-display {
   display:flex;
   align-items: center;
   gap: .25em;
@@ -298,10 +298,18 @@ header button {
   margin:0;
 }
 
-.location-display h3 {
+.property-display h3 {
   margin:0;
   font-size:1em;
   font-weight: 100;
+}
+
+.property-bar {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap:1em;
+  overflow:hidden;
 }
 
 /****************

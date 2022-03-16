@@ -3,10 +3,12 @@ import MaterialIcon from "./MaterialIcon"
 
 function LocationDisplay({locationString}) {
     return(
-        <div className="location-display">
-            <MaterialIcon name="room"/>
-            <h3>{locationString}</h3>
-        </div>
+        locationString ?
+            <div className="property-display">
+                <MaterialIcon name="room"/>
+                <h3>{locationString}</h3>
+            </div>
+        : null
     )
 }
 
