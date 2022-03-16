@@ -167,7 +167,13 @@ header button {
 
 .upcoming-display {
   height:100%;
-  width:50%;
+  width:60%;
+
+  padding: 3em 5em 0em 5em;
+
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 .event-list {
