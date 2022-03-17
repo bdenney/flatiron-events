@@ -204,8 +204,7 @@ header button {
 
   height:100%;
   width:40%;
-
-  background-color: rgba(230, 100, 60, .8);
+  background: linear-gradient(180deg, rgba(230,100,60,1) 95%, rgba(255,255,255,0) 100%);
 
   padding: 0em 5em 0em 5em;
 
@@ -255,8 +254,7 @@ header button {
 
   height:10%;
   width:40%;
-
-  background: rgba(230,100,60, 0);
+ 
   background: linear-gradient(360deg, rgba(230,100,60,1) 50%, rgba(255,255,255,0) 100%);
 
   z-index: 0;
