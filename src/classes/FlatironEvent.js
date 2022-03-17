@@ -69,6 +69,25 @@ class FlatironEvent {
         );
     }
 
+    get isThisWeek() {
+        // Get today's day.
+        const today = new Date();
+        const day = today.getDay();
+
+        // Subtract from Friday (5) to see how many days are left this week.
+        const daysLeftThisWeek = 5 - day;
+
+        // Create a new Date object for the end of this week.
+        const endOfThisWeek = new Date();
+        endOfThisWeek.setDate(today.getDate() + daysLeftThisWeek);
+
+        return (
+            this.startDate.getFullYear() <= endOfThisWeek.getFullYear()
+            && this.startDate.getMonth() <= endOfThisWeek.getMonth()
+            && this.startDate.getDate() <= endOfThisWeek.getDate()
+        )
+    }
+
     get dayOfWeek() {
         return DAYS[this.startDate.getDay()];
     }
