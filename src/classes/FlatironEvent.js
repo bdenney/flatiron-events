@@ -8,6 +8,21 @@ const DAYS = [
     "Saturday"
 ]
 
+const MONTHS = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+]
+
 class FlatironEvent {
     // Hardcoding to EST since this app is for NYC campus, but could be configurable in the future.
     #TIME_ZONE = "EST";
@@ -135,8 +150,28 @@ class FlatironEvent {
                 dateStr = "Today @ ";
             } else if (fiEvent.isTomorrow) {
                 dateStr += "Tomorrow @ "
-            } else {
+            }  else if (fiEvent.isThisWeek) {
                 dateStr += fiEvent.dayOfWeek + " @ "
+            } else {
+                // dateStr += fiEvent.startDate.toLocaleString('en-US');
+                dateStr += MONTHS[fiEvent.startDate.getMonth()] + " "
+                dateStr += fiEvent.startDate.getDate();
+
+                switch (fiEvent.startDate.getDate()) {
+                    case 1:
+                        dateStr += "st";
+                        break;
+                    case 2:
+                        dateStr += "nd";
+                        break;
+                    case 3:
+                        dateStr += "rd";
+                        break;
+                    default:
+                        dateStr +=  "th";
+                }
+
+                dateStr += " @ "
             }
         
             dateStr += FlatironEvent.timeString(fiEvent.startDate);

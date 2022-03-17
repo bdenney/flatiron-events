@@ -33,7 +33,7 @@ function CalendarDisplay() {
   });
 
   const upcomingEvents = calendarEvents.filter(event => {
-    return !(event.isAllDay || event.isToday || !event.isThisWeek);
+    return !(event.isAllDay || event.isToday);
   });
 
   const upNextEvent = upcomingEvents[0];
