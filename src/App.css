@@ -239,7 +239,9 @@ header button {
   font-size: 1.5em;
   padding: .75em 0em 1.5em 0em;
   overflow: hidden;
+  text-overflow: ellipsis;
   text-align: justify;
+  flex: 0 3 30%;
 
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
