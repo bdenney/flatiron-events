@@ -129,7 +129,7 @@ header button {
 }
 
 .event-card .event-title {
-  flex: 1 1 67%;
+  /* flex: 1 1 67%; */
   font-family: 'DM Serif Display', serif;
   font-weight: 100;
 
@@ -315,6 +315,12 @@ header button {
   
   gap:1em;
   overflow:hidden;
+}
+
+.card-property-bar {
+  display:flex;
+  flex: 1 0 20%;
+  gap: 1em;
 }
 
 /****************
