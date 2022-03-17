@@ -160,9 +160,11 @@ class FlatironEvent {
     }
 
     #generateLocation() {
-        if (!this.#gCalEvent.location) {
+        const rawLocationString = this.#gCalEvent.location;
+
+        if (!rawLocationString) {
             this.#location = "";
-        } else if (this.#gCalEvent.location.includes("Manhattan-2-Manhattan - ")) {
+        } else if (rawLocationString.includes("Manhattan-2-Manhattan - ")) {
             this.#location = this.#gCalEvent.location.replace("Manhattan-2-Manhattan - ", "")
                 .split(" ")
                 .reduce((prev, curr) => {
@@ -172,9 +174,12 @@ class FlatironEvent {
                         return prev;
                     }
             }, "");    
+        } else if (rawLocationString.includes("https://flatironschool.zoom.us/j/")) {
+            // Virtual event!
+            this.#location = "Virtual";
         } else {
             // By default just take whatever is there.
-            this.#location = this.#gCalEvent.location;
+            this.#location = rawLocationString;
         }
     }
 
