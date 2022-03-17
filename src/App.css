@@ -133,6 +133,8 @@ header button {
   font-family: 'DM Serif Display', serif;
   font-weight: 100;
 
+  white-space: nowrap;
+  text-overflow: ellipsis;
   overflow: hidden;
 
   margin: 0;
