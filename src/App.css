@@ -129,36 +129,22 @@ header button {
 }
 
 .event-card .event-title {
+  flex: 1 1 67%;
   font-family: 'DM Serif Display', serif;
   font-weight: 100;
+
+  overflow: hidden;
 
   margin: 0;
 }
 
-.event-card h1 {
-  font-size:2.25em;
-}
-
 .event-card h2 {
+  flex: 0 1 33%;
+
   font-family: 'Fira Sans', sans-serif;
   font-weight: 400;
-}
 
-.event-card p {
-  height: 70%;
-  font-size: 2em;
-
-  margin: .25em 0em 0em 0em;
-  
-  overflow: hidden;
-  white-space: wrap;
-  text-overflow: ellipsis;
-}
-
-/* "Now" Card formatting */
-.highlight-card .event-card {
-  width:100%;
-  height:100%;
+  margin: .5em 0 0 0;
 }
 
 /*************
