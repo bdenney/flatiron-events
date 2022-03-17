@@ -17,6 +17,7 @@ class FlatironEvent {
     #endDate;
     #location;
     #creator;
+    #description;
 
     constructor (gCalEvent) {
         if (!gCalEvent) {
@@ -28,6 +29,7 @@ class FlatironEvent {
         this.#generateEndDate();
         this.#generateLocation();
         this.#generateCreator();
+        this.#generateDescription();
     }
 
     get id() {
@@ -88,7 +90,7 @@ class FlatironEvent {
     }
 
     get description() {
-        return this.#gCalEvent.description;
+        return this.#description;
     }
 
     static timeString(dateTime) {
@@ -184,6 +186,12 @@ class FlatironEvent {
                             ? this.#gCalEvent.creator.displayName 
                             : this.#gCalEvent.creator.email;
         }
+    }
+
+    #generateDescription() {
+        const htmlElement = document.createElement('html');
+        htmlElement.innerHTML = this.#gCalEvent.description;
+        this.#description = htmlElement.textContent;
     }
 }
 
