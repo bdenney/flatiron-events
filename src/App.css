@@ -256,6 +256,9 @@ header button {
   width:100%;
   padding:1em 2em 1em 2em;
 
+  justify-content: center;
+  align-items: center;
+
   background-color: #101820;
   color:white;
 
@@ -278,21 +281,13 @@ header button {
   ALL DAY BANNER
 *****************/
 
-.all-day-event {
-  padding:.5em;
-  margin: auto 0 auto 0;
-  border: 1px solid white;
-  border-radius: 8px;
-  background-color: rgba(16, 24, 32, .75);
-  color: white;
+.all-day-events {
   flex: 1 0 auto;
-}
 
-.banner {
-  height:10%;
   display:flex;
-  gap:1em;
-  justify-content: space-evenly;
+  justify-content: center;
+
+  gap:5em;
 }
 
 /************

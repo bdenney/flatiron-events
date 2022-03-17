@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-function Footer() {
+function Footer({ allDayEvents }) {
 
     const MONTHS = [
         'January',
@@ -58,9 +58,16 @@ function Footer() {
         return () => clearTimeout(timerId);
     }, [time]);
 
+    const eventDisplay = allDayEvents.map((event) => {
+        return <h2 key={event.id}>{event.title}</h2>;
+    });
+
     return (
         <div className="footer">
             <h2 className="date">{ getDateString() }</h2>
+            <div className='all-day-events'>
+                {eventDisplay}
+            </div>
             <h2 className="time">{ getTimeString() }</h2>
         </div>
     );
