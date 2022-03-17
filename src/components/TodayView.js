@@ -13,6 +13,7 @@ function TodayView({ fiEvent }) {
                 <CreatorDisplay personString={fiEvent.creator} />
             </div>
             <p>{ fiEvent.description }</p>
+            <div className="content-fade-out"></div>
         </div>
     );
 }

@@ -248,6 +248,20 @@ header button {
   box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
+.content-fade-out {
+  position: absolute;
+  bottom:10%;
+  left:0;
+
+  height:10%;
+  width:40%;
+
+  background: rgba(230,100,60, 0);
+  background: linear-gradient(360deg, rgba(230,100,60,1) 50%, rgba(255,255,255,0) 100%);
+
+  z-index: 0;
+}
+
 /*************
   FOOTER
 **************/
@@ -297,9 +311,9 @@ header button {
   justify-content: space-evenly;
 }
 
-/**********
-  LOCATION
-***********/
+/************
+  PROPERTIES
+*************/
 
 .property-display {
   display:flex;
