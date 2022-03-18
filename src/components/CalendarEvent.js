@@ -13,7 +13,6 @@ function CalendarEvent({ fiEvent }) {
                 <LocationDisplay locationString={fiEvent.location} />
                 <CreatorDisplay personString={fiEvent.creator} />
             </div>
-            {/* { fiEvent.isToday ? <h2>{ fiEvent.location }</h2> : null } */}
         </div>
     );
 }

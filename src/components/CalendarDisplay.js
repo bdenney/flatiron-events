@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import TodayView from './TodayView';
 import UpcomingDisplay from './UpcomingDisplay';
 
 function CalendarDisplay({events}) {
 
   const upcomingEvents = events.filter(event => {
-    return !(event.isAllDay || event.isToday);
+    return !event.isAllDay;
   });
 
   const upNextEvent = upcomingEvents[0];
