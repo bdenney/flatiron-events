@@ -17,6 +17,7 @@ background-color: #1E2129;
 FONTS
 ------------------------------------------
 font-family: 'DM Serif Display', serif;
+font-family: 'Fira Console', monospace;
 font-family: 'Fira Sans', sans-serif;
 ------------------------------------------
 */
@@ -66,27 +67,14 @@ header img {
   padding:1em 0em 1em 0em;
 }
 
-header button {
-  margin: auto 0em auto auto;
-  padding:1em;
-  border: 1px solid white;
-  border-radius: 8px;
-  font-family: 'Fira Sans', sans-serif;
-  font-weight: 400;
-  color:white;
-  background:none;
-}
-
 .calendar-display {
   display: flex;
   flex-direction: column;
 
   width:100%;
-  height:80%;
+  height:100%;
 
   color: white;
-
-  overflow: hidden;
 
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
@@ -110,32 +98,29 @@ header button {
 
 /* Upcoming card formatting */
 .event-card {
+  position: relative;
+
   display:flex;
   flex-flow: column nowrap;
 
-  background-color: rgba(16, 24, 32, .75);
+  padding: 1em;
 
-  height:30%;
-  width:48%;
+  width:100%;
 
-  font-size: .75em;
-
-  padding:1em;
-
-  overflow: hidden;
-  
-  border: 1px solid white;
-  border-radius: 8px;
+  background: #1F2937;
+  border: 2px solid #4B5563;
+  border-radius: 8px;  
 
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
   box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
-.event-card .event-title {
-  /* flex: 1 1 67%; */
-  font-family: 'DM Serif Display', serif;
-  font-weight: 100;
+.event-title {
+  font-family: 'Fira Code', monospace;
+  font-weight: 700;
+  font-size: 1em;
+  line-height: 1.5em;
 
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -144,13 +129,20 @@ header button {
   margin: 0;
 }
 
-.event-card h2 {
-  flex: 0 1 33%;
-
-  font-family: 'Fira Sans', sans-serif;
+.event-date {
+  font-family: 'Fira Code', monospace;
   font-weight: 400;
+  font-size: .75em;
+  line-height: 1.25em;
 
-  margin: .5em 0 0 0;
+  margin: 0;
+}
+
+.event-date-wrapper {
+  position:absolute;
+  top: -.5em;
+
+  background-color: #1F2937;
 }
 
 /*************
@@ -170,16 +162,12 @@ header button {
 
 .event-list {
   display:flex;
-  flex-flow: row wrap;
+  flex-flow: column nowrap;
   align-content: start;
-
-  width:100%;
-  height:80%;
 
   gap:1em;
   padding:0;
   margin:0;
-  overflow:hidden;
 
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
@@ -239,50 +227,6 @@ header button {
   box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
-.content-fade-out {
-  position: absolute;
-  bottom:10%;
-  left:0;
-
-  height:20%;
-  width:40%;
- 
-  background: linear-gradient(360deg, rgba(230,100,60,1) 20%, rgba(0,0,0,0) 100%);
-
-  z-index: 0;
-}
-
-/*************
-  FOOTER
-**************/
-
-.footer {
-  display:flex;
-  height:10%;
-  width:100%;
-  padding:1em 2em 1em 2em;
-
-  justify-content: center;
-  align-items: center;
-
-  background-color: #101820;
-  color:white;
-
-  font-family: 'DM Serif Display', serif;
-
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-  box-sizing: border-box;         /* Opera/IE 8+ */
-}
-
-.footer h2 {
-  margin:0;
-}
-
-.footer .time {
-  margin-left:auto;
-}
-
 /****************
   ALL DAY BANNER
 *****************/
@@ -301,47 +245,16 @@ header button {
 *************/
 
 .property-display {
+  font-family: 'Fira Code', monospace;
+  font-weight: 400;
+  font-size: .75em;
+  line-height: 1em;
+
   display:flex;
   align-items: center;
   gap: .25em;
-  font-size:1em;
-  margin:0;
 }
 
 .property-display h3 {
-  margin:0;
-  font-size:1em;
-  font-weight: 100;
+  margin: 0;
 }
-
-.property-bar {
-  display:flex;
-  flex-wrap: wrap;
-  justify-content:center;
-  
-  gap:1em;
-  overflow:hidden;
-}
-
-.card-property-bar {
-  display:flex;
-  flex: 1 0 20%;
-  gap: 1em;
-}
-
-/****************
-  MATERIAL ICONS
-*****************/
-/* Rules for sizing the icon. */
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
-
-/* Rules for using icons as black on a light background. */
-.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
-.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
-
-/* Rules for using icons as white on a dark background. */
-.material-icons.md-light { color: rgba(255, 255, 255, 1); }
-.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }

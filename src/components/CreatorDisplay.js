@@ -6,7 +6,7 @@ function CreatorDisplay({personString}) {
         personString 
         ?
             <div className="property-display">
-                <MaterialIcon name={"person_outline"} />
+                <img src="./images/person-icon.svg" />
                 <h3>{personString}</h3>
             </div>
         : null

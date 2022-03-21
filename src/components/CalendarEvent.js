@@ -7,12 +7,12 @@ function CalendarEvent({ fiEvent }) {
 
     return(
         <div className="event-card">
-            <h1 className='event-title'>{ fiEvent.title }</h1>
-            <h2>{ FlatironEvent.dateString(fiEvent) }</h2>
-            <div className='card-property-bar'>
-                <LocationDisplay locationString={fiEvent.location} />
-                <CreatorDisplay personString={fiEvent.creator} />
+            <div className="event-date-wrapper">
+                <h2 className="event-date">{ FlatironEvent.dateString(fiEvent) }</h2>
             </div>
+            <h1 className='event-title'>{ fiEvent.title }</h1>
+            <LocationDisplay locationString={fiEvent.location} />
+            <CreatorDisplay personString={fiEvent.creator} />
         </div>
     );
 }
