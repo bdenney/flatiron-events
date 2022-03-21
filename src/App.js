@@ -1,7 +1,6 @@
 import './App.css';
 import ApiCalendar from 'react-google-calendar-api';
 import Header from "./components/Header"
-import Footer from './components/Footer';
 import CalendarDisplay from "./components/CalendarDisplay"
 import BlurredBackgroundHero from './components/BlurredBackgroundHero';
 import FlatironEvent from './classes/FlatironEvent';
@@ -36,9 +35,8 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header allDayEvents={allDayEvents} />
       <CalendarDisplay events={calendarEvents} />
-      <Footer allDayEvents={allDayEvents} />
       <BlurredBackgroundHero/>
     </div>
     

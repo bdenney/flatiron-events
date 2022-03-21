@@ -8,6 +8,9 @@ Red:        #DE4B51
 Orange:     #E6643C
 Black:      #101820
 Navy:       #385E71
+
+Figma:
+background-color: #1E2129;
 ------------------------------------------
 
 ------------------------------------------
@@ -26,6 +29,7 @@ html, body, .App {
 
   font-family: 'Fira Sans', sans-serif;
   font-weight: 400;
+  background-color: #1E2129;
 }
 
 .headline {
