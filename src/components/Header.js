@@ -48,7 +48,7 @@ function Header({allDayEvents}) {
       + ":" + time.getMinutes().toLocaleString('en-US', {
           minimumIntegerDigits: 2,
           useGrouping: false
-        }) + " " + ampm;
+        }) + ampm;
   }
 
   useEffect(() => {
@@ -59,17 +59,17 @@ function Header({allDayEvents}) {
   }, [time]);
 
   const eventDisplay = allDayEvents.map((event) => {
-      return <h2 key={event.id}>{event.title}</h2>;
+      return <h2 key={event.id}>:: {event.title}</h2>;
   });
 
   return (
       <header>
-        <img src="./images/logo2.svg"/>
+        <img src="./images/logo3.svg"/>
           <h2 className="date">{ getDateString() }</h2>
+          <h2 className="time">{ getTimeString() }</h2>
           <div className='all-day-events'>
               {eventDisplay}
           </div>
-          <h2 className="time">{ getTimeString() }</h2>
       </header>
   );
 }

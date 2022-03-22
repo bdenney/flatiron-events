@@ -13,10 +13,8 @@ function CalendarDisplay({events}) {
   return (
     
     <div className='calendar-display'>
-      <div className="timed-events">
-        { upNextEvent ? <TodayView fiEvent={upNextEvent} /> : null }
-        { upcomingEvents.length > 0 ? <UpcomingDisplay events={upcomingEvents.slice(1)} /> : null }
-      </div>
+      { upNextEvent ? <TodayView fiEvent={upNextEvent} /> : null }
+      { upcomingEvents.length > 0 ? <UpcomingDisplay events={upcomingEvents.slice(1)} /> : null }
     </div>
     
   )

@@ -13,6 +13,7 @@ function UpcomingDisplay({events}) {
                 })
             }
             </ul>
+            <div className='content-fade'/>
         </div>
     );
 }

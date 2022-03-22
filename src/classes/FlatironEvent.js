@@ -140,6 +140,36 @@ class FlatironEvent {
     }
 
     static dateString(fiEvent) {
+        let dateStr = '';
+        if (fiEvent.isToday) {
+            dateStr = "Today";
+        } else if (fiEvent.isTomorrow) {
+            dateStr += "Tomorrow";
+        }  else if (fiEvent.isThisWeek) {
+            dateStr += fiEvent.dayOfWeek;
+        } else {
+            // dateStr += fiEvent.startDate.toLocaleString('en-US');
+            dateStr += MONTHS[fiEvent.startDate.getMonth()] + " "
+            dateStr += fiEvent.startDate.getDate();
+
+            switch (fiEvent.startDate.getDate()) {
+                case 1:
+                    dateStr += "st";
+                    break;
+                case 2:
+                    dateStr += "nd";
+                    break;
+                case 3:
+                    dateStr += "rd";
+                    break;
+                default:
+                    dateStr +=  "th";
+            }
+        }
+        return dateStr;
+    }
+
+    static formattedDateTimeString(fiEvent) {
         let dateStr = "";
         if (fiEvent.isAllDay) {
             dateStr += "All Day ";
