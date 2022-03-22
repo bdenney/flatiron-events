@@ -1,5 +1,4 @@
 import React from 'react'
-import MaterialIcon from './MaterialIcon';
 
 function CreatorDisplay({personString}) {
     return(
