@@ -150,17 +150,15 @@ header .time {
   height:100%;
   width:50%;
 
-  margin: 2em;
-  padding: 1em;
+  margin: 2em 0em 0em 0em;
+  padding: 0em 0em 0em 1em;
 
   overflow: hidden;
 
   background-color: #1F2937;
 
   border-radius: 12px;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-  box-sizing: border-box;         /* Opera/IE 8+ */
+  box-sizing: border-box;
 }
 
 .upcoming-display .content-fade {
@@ -210,6 +208,8 @@ header .time {
 **************/
 
 .today-view {
+  position:relative;
+
   display:flex;
   flex-flow: column nowrap;
 
@@ -217,6 +217,27 @@ header .time {
   width:40%;
 
   margin: 2em;
+
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+.today-view .content-fade {
+  position:absolute;
+  bottom:0;
+  background: linear-gradient(0deg, rgba(30,33,41,1) 35%, rgba(255,255,255,0) 100%);
+  /* background-color:  rgba(30,33,41,1); */
+  width:100%;
+  height:6em;
+
+  margin-right: 2em;
+
+  border-left: 2px solid #383846;
+  border-right: 2px solid #383846;
+  border-bottom: 2px solid #383846;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
 
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
@@ -303,24 +324,6 @@ header .time {
 
   text-align: justify;
   flex: 1 3 30%;
-
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-  box-sizing: border-box;         /* Opera/IE 8+ */
-}
-
-.today-view .content-fade {
-  position:absolute;
-  bottom:2em;
-  background: linear-gradient(0deg, rgba(30,33,41,1) 35%, rgba(255,255,255,0) 100%);
-  width:40%;
-  height:6em;
-
-  border-left: 2px solid #383846;
-  border-right: 2px solid #383846;
-  border-bottom: 2px solid #383846;
-  border-bottom-left-radius: 16px;
-  border-bottom-right-radius: 16px;
 
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
