@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react'
+import ApiCalendar from 'react-google-calendar-api';
 
 function Header({allDayEvents}) {
 
@@ -18,6 +19,7 @@ function Header({allDayEvents}) {
   ] 
 
   const [time, setTime] = useState(new Date());
+  
 
   function getDateString() {
       let cardinal;
@@ -63,14 +65,14 @@ function Header({allDayEvents}) {
   });
 
   return (
-      <header>
-        <img src="./images/logo3.svg"/>
-          <h2 className="date">{ getDateString() }</h2>
-          <h2 className="time">{ getTimeString() }</h2>
-          <div className='all-day-events'>
-              {eventDisplay}
-          </div>
-      </header>
+        <header>
+            <img src="./images/logo3.svg"/>
+            <h2 className="date">{ getDateString() }</h2>
+            <h2 className="time">{ getTimeString() }</h2>
+            <div className='all-day-events'>
+                {eventDisplay}
+            </div>
+        </header>
   );
 }
 
