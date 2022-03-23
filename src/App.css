@@ -193,89 +193,28 @@ header .time {
   height:100%;
   width:40%;
 
-  margin:2em 0em 2em 2em;
-  
-  border: 2px solid #383846;
-  box-sizing: border-box;
-  border-radius: 16px;
-
-  flex: none;
-  flex-grow: 0;
-
-  overflow: hidden;
+  margin: 2em;
 
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
   box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
-/* .today-view .content-fade {
-
-  position: absolute;
-  bottom:2em;
-
-  width:39%;
-  height:20%;
-
-  background: linear-gradient(0deg, rgba(30,33,41,1) 35%, rgba(255,255,255,0) 100%);
-  border-radius: 16px;
-}
-
-.upcoming-display .content-fade {
-  position: absolute;
-
-  width:59%;
-  height:20%;
-  background: linear-gradient(0deg, rgba(31,41,55,1) 35%, rgba(255,255,255,0) 100%);
-  border-radius: 16px;
-
-  margin-bottom: 2em;
-  padding: 1em;
-} */
-
 .today-header {
   display: flex;
-  flex-direction: row;
   align-items: center;
   padding: 1em 1.5em 1em 1em;
 
   background: #1F2937;
-  border-radius: 1em 1em 0px 0px;
-
-  flex: none;
-  order: 0;
-  align-self: stretch;
-  flex-grow: 0;
-  margin: 0px 0px;
-
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-  box-sizing: border-box;         /* Opera/IE 8+ */
-}
-
-.today-header .datetime-display {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0px;
-
-  flex: none;
-  order: 1;
-  flex-grow: 1;
 }
 
 .today-header .calendar-icon {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
   padding: .75em;
   
   background: #08314A;
   border-radius: 100px;
-
-  flex: none;
-  order: 0;
-  flex-grow: 0;
   margin: 0px 1.5em;
 }
 
@@ -302,17 +241,23 @@ header .time {
 .today-body {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+
+  height:100%;
+  width:100%;
+
+  overflow: hidden;
 
   padding: 2.5em;
+  
+  border-left: 2px solid #383846;
+  border-right: 2px solid #383846;
+  border-bottom: 2px solid #383846;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
 
-  flex: none;
-  order: 1;
-  align-self: stretch;
-  flex-grow: 0;
-  margin: 0px 0px;
-
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 .today-view .event-title {
