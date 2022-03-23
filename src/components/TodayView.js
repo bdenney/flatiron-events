@@ -23,7 +23,6 @@ function TodayView({ fiEvent }) {
                 </div>
                 <p>{ fiEvent.description }</p>
             </div>
-
             <div className='content-fade'></div>
         </div>
     );
