@@ -98,10 +98,12 @@ header .time {
   display:flex;
   flex-flow: column nowrap;
   justify-content: center;
+  align-items: flex-start;
   gap:.5em;
 
   padding: 1em;
 
+  height:20%;
   width:48%;
 
   background: #1F2937;
