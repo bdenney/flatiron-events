@@ -225,6 +225,9 @@ header .time {
   align-items: center;
   padding: 1em 1.5em 1em 1em;
 
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+
   background: #1F2937;
 }
 
