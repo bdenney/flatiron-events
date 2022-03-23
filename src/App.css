@@ -97,11 +97,12 @@ header .time {
 
   display:flex;
   flex-flow: column nowrap;
+  justify-content: center;
   gap:.5em;
 
   padding: 1em;
 
-  width:100%;
+  width:48%;
 
   background: #1F2937;
   border: 2px solid #4B5563;
@@ -188,7 +189,7 @@ header .time {
 
 .event-list {
   display:flex;
-  flex-flow: column nowrap;
+  flex-flow: row wrap;
   align-content: start;
 
   height:100%;
@@ -352,6 +353,8 @@ header .time {
   font-weight: 400;
   font-size: .75em;
   line-height: 1em;
+
+  overflow: hidden;
 
   display:flex;
   align-items: center;
