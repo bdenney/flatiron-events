@@ -109,8 +109,7 @@ header .time {
 
   display:flex;
   flex-flow: column nowrap;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
   gap:.5em;
 
   padding: 1em;
@@ -131,7 +130,6 @@ header .time {
   font-family: 'Fira Code', monospace;
   font-weight: 700;
   font-size: 1em;
-  line-height: 1.5em;
 
   margin: 0;
 }
@@ -324,7 +322,7 @@ header .time {
   font-style: normal;
   font-weight: 700;
   font-size: 1.75em;
-  line-height: 2.5em;
+  line-height: 1.75em;
 }
 
 .today-view p {
@@ -365,6 +363,12 @@ header .time {
 /************
   PROPERTIES
 *************/
+
+.property-bar {
+  display:flex;
+  flex-direction: column;
+  gap: .5em;
+}
 
 .property-display {
   font-family: 'Fira Code', monospace;
