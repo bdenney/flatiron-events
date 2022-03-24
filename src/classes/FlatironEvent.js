@@ -278,9 +278,23 @@ class FlatironEvent {
     }
 
     #generateDescription() {
+        if (!this.#gCalEvent.description) return;
+        // Remove all html tags.
+        this.#description = this.#gCalEvent.description.replace( /(<([^>]+)>)/ig, ' ');
+
+        // Parse any encoded elements.
         const htmlElement = document.createElement('html');
-        htmlElement.innerHTML = this.#gCalEvent.description;
+        htmlElement.innerHTML = this.#description;
         this.#description = htmlElement.textContent;
+
+        // Remove all the zoom invite information if it exists.
+        const zoomRegexStr = /\w+(?=\s+\w+(?=\s+is inviting you to a scheduled Zoom meeting.))/gm
+        let matches = zoomRegexStr.exec(this.#description);
+        if (matches) {
+            let index = matches.index;
+            this.#description = this.#description.substring(0, index);
+            console.log(this.#description)
+        }
     }
 }
 
