@@ -115,7 +115,7 @@ header .time {
   padding: 1em;
 
   min-height:20%;
-  width:48%;
+  width:100%;
 
   background: #1F2937;
   border: 2px solid #4B5563;
@@ -161,7 +161,7 @@ header .time {
   width:50%;
 
   margin: 2em 0em 0em 0em;
-  padding: 0em 0em 0em 1em;
+  padding: 0em 1em 0em 1em;
 
   overflow: hidden;
 
@@ -199,7 +199,7 @@ header .time {
 
 .event-list {
   display:flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   align-content: start;
 
   height:100%;
