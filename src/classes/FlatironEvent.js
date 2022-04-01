@@ -127,6 +127,10 @@ class FlatironEvent {
         return this.#description;
     }
 
+    formattedTimeString() {
+        return `${FlatironEvent.timeString(this.startDate)} - ${FlatironEvent.timeString(this.endDate)}`
+    }
+
     static timeString(dateTime) {
         let hours = dateTime.getHours();
         const ampm = hours >= 12 ? 'pm' : 'am';
@@ -185,46 +189,6 @@ class FlatironEvent {
             } 
         }
 
-        return dateStr;
-    }
-
-    static formattedDateTimeString(fiEvent) {
-        let dateStr = "";
-        if (fiEvent.isAllDay) {
-            dateStr += "All Day ";
-            dateStr += fiEvent.dayOfWeek;
-        } else {
-
-            if (fiEvent.isToday) {
-                dateStr = "Today @ ";
-            } else if (fiEvent.isTomorrow) {
-                dateStr += "Tomorrow @ "
-            }  else if (fiEvent.isThisWeek) {
-                dateStr += fiEvent.dayOfWeek + " @ "
-            } else {
-                // dateStr += fiEvent.startDate.toLocaleString('en-US');
-                dateStr += MONTHS[fiEvent.startDate.getMonth()] + " "
-                dateStr += fiEvent.startDate.getDate();
-
-                switch (fiEvent.startDate.getDate()) {
-                    case 1:
-                        dateStr += "st";
-                        break;
-                    case 2:
-                        dateStr += "nd";
-                        break;
-                    case 3:
-                        dateStr += "rd";
-                        break;
-                    default:
-                        dateStr +=  "th";
-                }
-
-                dateStr += " @ "
-            }
-        
-            dateStr += FlatironEvent.timeString(fiEvent.startDate);
-        }
         return dateStr;
     }
 

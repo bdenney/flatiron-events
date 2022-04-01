@@ -24,7 +24,7 @@ function CalendarEvent({ fiEvent, firstOnDate=true }) {
             }
             <div className="event-card">
                 <div className="event-date-wrapper">
-                    <h2 className="event-date">{ FlatironEvent.formattedDateTimeString(fiEvent) }</h2>
+                    <h2 className="event-date">{ fiEvent.formattedTimeString() }</h2>
                 </div>
                 <h1 className='event-title'>{ fiEvent.title }</h1>
                 <LocationDisplay locationString={fiEvent.location} />
