@@ -5,23 +5,23 @@ import LocationDisplay from './LocationDisplay'
 import CreatorDisplay from './CreatorDisplay'
 import * as dateUtils from '../utils/dateUtils'
 
-function CalendarEvent({ fiEvent, firstOnDate=true }) {
+function CalendarEvent({ fiEvent, firstOnDate }) {
+
+    const style = {
+        "visibility": firstOnDate ? "visible" : "hidden"
+    };
 
     return(
         <div className='schedule-wrapper'>
-            {
-            firstOnDate 
-            ? (
-                <div className='date-indicator'>
-                    <h3 className="day-of-week">{FlatironEvent.getDayOfWeekString(fiEvent)}</h3>
-                    <div className='calendar-date'>
-                        <h3 className="month">{dateUtils.MONTHS[fiEvent.startDate.getMonth()][0]}</h3>
-                        <h3 className="day">{fiEvent.startDate.getDay()}</h3>
-                    </div>
+            
+            <div className='date-indicator' style={style}>
+                <h3 className="day-of-week">{FlatironEvent.getDayOfWeekString(fiEvent)}</h3>
+                <div className='calendar-date'>
+                    <h3 className="month">{dateUtils.MONTHS[fiEvent.startDate.getMonth()][0]}</h3>
+                    <h3 className="day">{fiEvent.startDate.getDay()}</h3>
                 </div>
-            )
-            : null
-            }
+            </div>
+            
             <div className="event-card">
                 <div className="event-date-wrapper">
                     <h2 className="event-date">{ fiEvent.formattedTimeString() }</h2>

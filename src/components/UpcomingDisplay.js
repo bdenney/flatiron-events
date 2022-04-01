@@ -32,8 +32,8 @@ function UpcomingDisplay({events}) {
 
         item = iterator.next()
 
-        bucketData.forEach(event => {
-            eventArray.push(<CalendarEvent key={event.id} fiEvent={event} />)
+        bucketData.forEach((event, index) => {
+            eventArray.push(<CalendarEvent key={event.id} fiEvent={event} firstOnDate={index === 0} />)
         })
         
     }

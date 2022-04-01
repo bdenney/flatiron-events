@@ -16,6 +16,11 @@
     display:flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
+    align-items: center;
+
+    width: 15%;
+
+    margin-right: .5em;
 
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
@@ -33,7 +38,6 @@
     width:3.25em;
     height:3.25em;
 
-    margin-right:1em;
     margin-top:1.5em;
 }
 
