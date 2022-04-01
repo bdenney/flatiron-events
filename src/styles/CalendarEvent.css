@@ -1,0 +1,109 @@
+.schedule-wrapper {
+    display:flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+  
+    width:100%; 
+  
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+.date-indicator {
+    position: relative;
+
+    display:flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+.calendar-date {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background: #383846;
+    border-radius: 3em;
+
+    width:3.25em;
+    height:3.25em;
+
+    margin-right:1em;
+    margin-top:1.5em;
+}
+
+.calendar-date h3 {
+    font-family: 'Fira Console', monospace;
+    margin: 0;
+}
+
+.calendar-date .month {
+    font-weight: 400;
+    font-size: .875em;
+}
+
+.calendar-date .day {
+    font-size: 1.25em;
+    font-weight: 500;
+}
+
+.event-card {
+    position: relative;
+  
+    display:flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    gap:.5em;
+  
+    padding: 1em;
+  
+    min-height:20%;
+    width:85%;
+  
+    background: #1F2937;
+    border: 2px solid #4B5563;
+    border-radius: 8px;  
+  
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+.event-title {
+    font-family: 'Fira Code', monospace;
+    font-weight: 700;
+    font-size: 1em;
+  
+    margin: .5em 0 .5em 0;
+}
+  
+.event-date {
+    font-family: 'Fira Code', monospace;
+    font-weight: 400;
+    font-size: .75em;
+    line-height: 1.25em;
+  
+    margin: 0;
+}
+  
+.event-date-wrapper {
+    position:absolute;
+    top: -.5em;
+  
+    background-color: #1F2937;
+}
+
+.day-of-week {
+    position:absolute;
+    top: -.5em;
+    font-family: 'Fira Code', monospace;
+    font-weight: 500;
+    font-size: 1em;
+
+    margin: 0;
+}

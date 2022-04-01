@@ -78,9 +78,9 @@ class FlatironEvent {
         tomorrow.setDate(tomorrow.getDate() + 1);
 
         return (
-            this.startDate.getFullYear() == tomorrow.getFullYear()
-            && this.startDate.getMonth() == tomorrow.getMonth()
-            && this.startDate.getDate() == tomorrow.getDate()
+            this.startDate.getFullYear() === tomorrow.getFullYear()
+            && this.startDate.getMonth() === tomorrow.getMonth()
+            && this.startDate.getDate() === tomorrow.getDate()
         );
     }
 
@@ -166,6 +166,25 @@ class FlatironEvent {
                     dateStr +=  "th";
             }
         }
+        return dateStr;
+    }
+
+    static getDayOfWeekString(fiEvent) {
+        let dateStr = "";
+        if (fiEvent.isAllDay) {
+            dateStr += "All Day ";
+            dateStr += fiEvent.dayOfWeek;
+        } else {
+
+            if (fiEvent.isToday) {
+                dateStr = "Today";
+            } else if (fiEvent.isTomorrow) {
+                dateStr += "Tomorrow"
+            }  else {
+                dateStr += fiEvent.dayOfWeek
+            } 
+        }
+
         return dateStr;
     }
 
