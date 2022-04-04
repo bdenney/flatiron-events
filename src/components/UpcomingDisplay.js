@@ -11,7 +11,8 @@ function UpcomingDisplay({events}) {
             const startDate = event.startDate;
 
             // Build the bucket key.
-            const key = `${startDate.getYear()}-${startDate.getMonth()}-${startDate.getDay()}`
+            const key = `${startDate.getYear()}-${startDate.getMonth()}-${startDate.getDate()}`
+
             if (dateBuckets.has(key)) {
                 const bucket = dateBuckets.get(key);
                 bucket.push(event);
