@@ -18,7 +18,7 @@ function CalendarEvent({ fiEvent, firstOnDate }) {
                 <h3 className="day-of-week">{FlatironEvent.getDayOfWeekString(fiEvent)}</h3>
                 <div className='calendar-date'>
                     <h3 className="month">{dateUtils.MONTHS[fiEvent.startDate.getMonth()][0]}</h3>
-                    <h3 className="day">{fiEvent.startDate.getDay()}</h3>
+                    <h3 className="day">{fiEvent.startDate.getDate()}</h3>
                 </div>
             </div>
             
